@@ -5,11 +5,21 @@ Function Get-Input([string] $message, [string] $title = "AD Computersuche", [str
 }
 
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") | Out-Null
-$searchInput = Get-Input("Nach welcher Beschreibung soll gesucht werden?")
 $Properties = @('Name', 'Description', 'DistinguishedName', 'OperatingSystem', 'IPv4Address', 'DNSHostName', 'lastLogonDate')
+$runAgain = 1
 
-if ([string]::IsNullOrEmpty($searchInput)) { [System.Windows.Forms.Messagebox]::Show("Leere Eingabe nicht zulaessig!")
-} else {
-    $searchInput = "*" + $searchInput + "*"
-    Get-ADComputer -Filter {Description -like $searchInput -Or Name -like $searchInput} -Properties $Properties | Sort-Object Name | Select-Object $Properties | Out-GridView -Title "AD Computer - Suchergebnisse"
+while($runAgain -eq 1) {
+    $searchInput = Get-Input("Nach welcher Beschreibung soll gesucht werden?")
+    if ([string]::IsNullOrEmpty($searchInput)) {
+        [System.Windows.Forms.Messagebox]::Show("Leere Eingabe nicht zulaessig!")
+    } else {
+        $searchInput = "*" + $searchInput + "*"
+        if ($result = Get-ADComputer -Filter {Description -like $searchInput -Or Name -like $searchInput} -Properties $Properties | Select-Object $Properties) {
+            $result | Sort-Object Name | Out-GridView -Title "AD Computer - Suchergebnisse"
+            $runAgain = 0
+        } else {
+            [System.Windows.Forms.Messagebox]::Show("Es wurde kein Ergebnis gefunden")
+            $runAgain = 1
+        }
+    }
 }
