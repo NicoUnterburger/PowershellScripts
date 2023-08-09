@@ -11,15 +11,14 @@ $runAgain = 1
 while($runAgain -eq 1) {
     $searchInput = Get-Input("Nach welcher Beschreibung soll gesucht werden?")
     if ([string]::IsNullOrEmpty($searchInput)) {
-        [System.Windows.Forms.Messagebox]::Show("Leere Eingabe nicht zulaessig!")
+        [System.Windows.Forms.Messagebox]::Show("Leere Eingabe nicht zulaessig!") | Out-Null
     } else {
         $searchInput = "*" + $searchInput + "*"
         if ($result = Get-ADComputer -Filter {Description -like $searchInput -Or Name -like $searchInput} -Properties $Properties | Select-Object $Properties) {
             $result | Sort-Object Name | Out-GridView -Title "AD Computer - Suchergebnisse"
             $runAgain = 0
         } else {
-            [System.Windows.Forms.Messagebox]::Show("Es wurde kein Ergebnis gefunden")
-            $runAgain = 1
+            [System.Windows.Forms.Messagebox]::Show("Es wurde kein Ergebnis gefunden") | Out-Null
         }
     }
 }
