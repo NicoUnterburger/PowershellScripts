@@ -4,7 +4,7 @@ $CSVFile = "C:\exportOU" + $DateTime + ".csv"
 
 $ADGroups += Get-ADGroup -Filter * -SearchBase $ou
 $adGroupMembers = foreach ($Group in $ADGroups) {
-    Get-ADGroupMember -Identity $Group -Recursive | Select-Object @{Name='Group';Expression={$Group.Name}}, @{Name='Member';Expression={$_.SamAccountName}}
+    Get-ADGroupMember -Identity $Group -Recursive | Select-Object @{Name='Member';Expression={$_.SamAccountName}}, @{Name='Group';Expression={$Group.Name}}
 }
 
 # export ad group name and user to csv file
