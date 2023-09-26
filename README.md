@@ -1,5 +1,17 @@
 # PowershellScripts
+all content is written with standard Powershell installation (Win10/Win11, Version 5.1)
 
+## Script Template-Blocks
+| Script                                               | Description                                                                                     |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [tmpl-synopsis.ps1](./tmpl-synopsis.ps1) | Standard Powershell Synopsis |
+| [tmpl-forEach-CSV.ps1](./tmpl-forEach-CSV.ps1) | For each Line in .csv File ... |
+| [tmpl-forEach-TXT.ps1](./tmpl-forEach-TXT.csv) | For each Line in .txt File ... |
+| [tmpl-GUI.ps1](./tmpl-GUI.ps1) | GUI Initialising |
+| [tmpl-countFilesInFolder.ps1](tmpl-countFilesInFolder.ps1) | Count all Files in each Subfolder |
+| [tmpl-sendSMTPmail.ps1](tmpl-sendSMTPmail.ps1) | Simple Script to send Mails via SMTP |
+
+## Ready to use Scripts
 | Script                                               | Description                                                                                     |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | [WinServer-EvalToFull.ps1](WinServer-EvalToFull.ps1) | Convert Windows Server from Evaluation Mode to Standard or Datacenter                  |
@@ -7,12 +19,13 @@
 | [checkAndMoveFSMOroles.ps1](checkAndMoveFSMOroles.ps1) | Move FSMO-Roles to new DC | 
 | [checkComputerAvailability.ps1](checkComputerAvailability.ps1) | Ping Computer via Script | 
 | [convertPS1toEXE.ps1](convertPS1toEXE.ps1) | Convert .ps1-File to an executable EXE File |
-| [countFilesInFolder.ps1](countFilesInFolder.ps1) | Count all Files in each Subfolder |
 | [createCodeSigningCert.ps1](createCodeSigningCert.ps1) | Create new CodeSigning Certificate |
 | [exportSecurityGroupMembers.ps1](exportSecurityGroupMembers.ps1) | Export Members from all Security Groups |
-| [importSecurityGroups.ps1](importSecurityGroups.ps1) | Create SecurityGroups from source .txt File |
+| [importSecurityGroupsTXT.ps1](importSecurityGroupsTXT.ps1) | Create SecurityGroups from source .txt File |
+| [importSecurityGroupsCSV.ps1](importSecurityGroupsCSV.ps1) | Create SecurityGroups from source .csv File |
+| [importSecurityGroupMembersTXT.ps1](./importSecurityGroupMembersTXT.ps1) | Import Users to an AD Security Group, based on a .txt File |
+| [importSecurityGroupMembersCSV.ps1](importSecurityGroupMembersCSV.ps1) | Import Users to an AD Security Group, based on a .csv File |
 | [resetPasswordForOU.ps1](resetPasswordForOU.ps1) | Reset Password for each User in OU (and Sub-OUs) |
 | [searchPCNameAD.ps1](searchPCNameAD.ps1) | Search Name and Description Computer-Objects |
-| [sendSMTPmail.ps1](sendSMTPmail.ps1) | Simple Script to send Mails via SMTP |
 | [switchProxyAddresses.ps1](switchProxyAddresses.ps1) | Switch primary and alias Adresses from AD-ProxyAdresses |
 | [winAssetGenerator.ps1](winAssetGenerator.ps1) | Generate Full Overview of all mentioned Computer-Objects |
