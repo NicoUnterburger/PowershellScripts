@@ -25,7 +25,7 @@ all content is written with standard Powershell installation (Win10/Win11, Versi
 | [searchPCNameAD.ps1](searchPCNameAD.ps1) | Search Name and Description Computer-Objects |
 | [switchProxyAddresses.ps1](switchProxyAddresses.ps1) | Switch primary and alias Adresses from AD-ProxyAdresses |
 
-## other Scripts
+## System Scripts
 | Script                                               | Description                                                                                     |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | [WinServer-EvalToFull.ps1](WinServer-EvalToFull.ps1) | Convert Windows Server from Evaluation Mode to Standard or Datacenter                  |
